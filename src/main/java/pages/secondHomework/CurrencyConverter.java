@@ -21,4 +21,5 @@ public class CurrencyConverter {
     public double calculateTotalAmount(final double amountUah, final double commissionInUah) {
         return amountUah - commissionInUah;
     }
+
 }
