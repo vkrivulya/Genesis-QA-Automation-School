@@ -7,7 +7,6 @@ public class SearchObjectResponse {
     private List<Data> data;
     private Pagination pagination;
 
-
     public SearchObjectResponse(List<Data> data, Pagination pagination) {
         this.data = data;
         this.pagination = pagination;

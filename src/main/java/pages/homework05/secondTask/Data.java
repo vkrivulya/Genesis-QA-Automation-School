@@ -2,7 +2,6 @@ package pages.homework05.secondTask;
 
 import java.util.List;
 
-
 public final class Data {
 
     private List<Tester> objects;
