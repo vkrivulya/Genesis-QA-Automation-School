@@ -25,4 +25,5 @@ buildNumber.properties
 /dataSources/
 /dataSources.local.xml
 /build
+.idea
 
