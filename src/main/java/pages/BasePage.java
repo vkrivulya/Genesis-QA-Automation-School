@@ -13,13 +13,11 @@ public abstract class BasePage {
 
     protected final HomeWorksPageFactories homeWorksPageFactories;
 
-
     public boolean isElementConditionAsExpected(SelenideElement element, final Condition condition, final Timeout timeOut) {
         try {
             element.shouldBe(condition, timeOut.getDuration());
             return true;
         } catch (ElementShould | ElementNotFound elementNotFound) {
-//            Allure.addAttachment("Exception", elementNotFound.toString());
             return false;
         }
     }

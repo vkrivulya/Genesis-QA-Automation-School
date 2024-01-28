@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 
 public class GoogleTranslateTest extends BaseTest {
 
-    GoogleTranslatePage googleTranslatePage;
+    private GoogleTranslatePage googleTranslatePage;
 
     @BeforeTest
     public void beforeTest() {
