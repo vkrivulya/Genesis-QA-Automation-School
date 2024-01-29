@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum Urls {
 
     GOOGLE_TRANSLATE_URL("https://translate.google.com"),
-    TRELLO_URL("https://trello.com/");
+    TRELLO_URL("https://trello.com/"),
+    IMDB_TOP_250_URL("https://www.imdb.com/chart/top/");
 
     private final String url;
 }
