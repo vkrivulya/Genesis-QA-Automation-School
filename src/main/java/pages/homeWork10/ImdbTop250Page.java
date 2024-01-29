@@ -41,7 +41,7 @@ public class ImdbTop250Page extends BasePage {
         return $x(format("//*[contains (@class, 'ipc-title__text') and contains (.,'%s')]/ancestor::a", name));
     }
 
-    //    @DataProvider(name = "persons")
+    //        @DataProvider(name = "persons")
     public Iterator<String> names() {
         List<String> nameOfTheMovie = getNameOfTheMovie();
         return nameOfTheMovie.stream().limit(100).collect(Collectors.toList()).iterator();
@@ -59,19 +59,25 @@ public class ImdbTop250Page extends BasePage {
 
     public List<String> getNameOfTheMovie() {
         List<String> names = new ArrayList<>();
-        MOVIE_NAME_ON_LIST.forEach(element -> names.add(element.getText()));
+        for (SelenideElement element : MOVIE_NAME_ON_LIST) {
+            names.add(element.getText());
+        }
         return names;
     }
 
     public List<String> getYearOfTheMovie() {
         List<String> years = new ArrayList<>();
-        MOVIE_YEAR_ON_LIST.forEach(element -> years.add(element.getText()));
+        for (SelenideElement element : MOVIE_YEAR_ON_LIST) {
+            years.add(element.getText());
+        }
         return years;
     }
 
     public List<String> getRatingOfTheMovie() {
         List<String> years = new ArrayList<>();
-        RATING_ON_LIST.forEach(element -> years.add(element.getOwnText()));
+        for (SelenideElement element : RATING_ON_LIST) {
+            years.add(element.getOwnText());
+        }
         return years;
     }
 
