@@ -4,6 +4,7 @@ import pages.homeWork10.GoogleTranslatePage;
 import pages.homeWork10.ImdbTop250Page;
 import pages.homeWork10.trello.*;
 import pages.homework12.YakabooPage;
+import pages.homework13.*;
 
 public class HomeWorksPageFactories extends PageFactories {
 
@@ -37,5 +38,29 @@ public class HomeWorksPageFactories extends PageFactories {
 
     public YakabooPage getYakabooPage() {
         return YakabooPage.getInstance(this);
+    }
+
+    public SaucedemoLoginPage getSaucedemoLoginPage() {
+        return SaucedemoLoginPage.getInstance(this);
+    }
+
+    public InventoryPage getInventoryPage() {
+        return InventoryPage.getInstance(this);
+    }
+
+    public CartPage getCartPage() {
+        return CartPage.getInstance(this);
+    }
+
+    public CheckoutFormPage getCheckoutFormPage() {
+        return CheckoutFormPage.getInstance(this);
+    }
+
+    public CheckoutOverviewPage getCheckoutOverviewPage() {
+        return CheckoutOverviewPage.getInstance(this);
+    }
+
+    public CheckoutCompletePage getCheckoutCompletePage() {
+        return CheckoutCompletePage.getInstance(this);
     }
 }

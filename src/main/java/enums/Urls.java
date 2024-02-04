@@ -10,7 +10,8 @@ public enum Urls {
     GOOGLE_TRANSLATE_URL("https://translate.google.com"),
     TRELLO_URL("https://trello.com/"),
     IMDB_TOP_250_URL("https://www.imdb.com/chart/top/"),
-    YAKABOO_URL("https://www.yakaboo.ua/");
+    YAKABOO_URL("https://www.yakaboo.ua/"),
+    SAUCEDEMO_URL("https://www.saucedemo.com");
 
     private final String url;
 }
