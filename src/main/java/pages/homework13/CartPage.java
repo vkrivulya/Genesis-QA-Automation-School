@@ -1,6 +1,7 @@
 package pages.homework13;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 
@@ -33,14 +34,17 @@ public class CartPage extends BasePage {
         return $x(format("//*[@class='item_pricebar' and contains(.,'%s')]/preceding-sibling::a", price));
     }
 
+    @Step("Cart page is loaded")
     public boolean isCartPageLoaded() {
         return isElementConditionAsExpected(CART_LIST, visible, SHORT_TIMEOUT);
     }
 
-    public String getItemNameBePriceOnCart(String price) {
+    @Step("Get item name by Price")
+    public String getItemNameByPriceOnCart(String price) {
         return itemNameByPriceOnCart(price).shouldBe(visible).getText();
     }
 
+    @Step("Click on Checkout button")
     public CheckoutFormPage clickOnCheckoutButton() {
         CHECKOUT_BUTTON.scrollIntoView(true).shouldBe(visible, enabled).click();
         return homeWorksPageFactories.getCheckoutFormPage();

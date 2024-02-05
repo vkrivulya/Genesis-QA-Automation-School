@@ -1,6 +1,7 @@
 package pages.homeWork10.trello;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 import users.IUsers;
@@ -30,19 +31,23 @@ public final class TrelloLoginPage extends BasePage {
         return instance;
     }
 
+    @Step("Header is visible")
     public boolean isHeaderSuffixVisible() {
         return isElementConditionAsExpected(HEADER_SUFFIX, visible, LONG_TIMEOUT);
     }
 
+    @Step("Set email {0}")
     public void setEmail(final IUsers user) {
         EMAIL_INPUT.shouldBe(enabled).setValue(user.getEmail());
     }
 
+    @Step("Click login submit button")
     public TrelloMainBoardsPage clickLoginSubmitButton() {
         LOGIN_SUBMIT_BUTTON.shouldBe(enabled).click();
         return homeWorksPageFactories.getTrelloMainBoardsPage();
     }
 
+    @Step("Set password {0}")
     public void setPassword(final IUsers user) {
         PASSWORD_INPUT.shouldBe(enabled).setValue(user.getPassword());
     }

@@ -2,6 +2,7 @@ package pages.homeWork10.trello;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 
@@ -29,10 +30,12 @@ public final class TrelloMainBoardsPage extends BasePage {
         return instance;
     }
 
+    @Step("Header trello Board is visible")
     public boolean isHeaderTrelloBoardVisible() {
         return isElementConditionAsExpected(HEADER, visible, LONG_TIMEOUT);
     }
 
+    @Step("Select Board by title {0}")
     public TrelloBoardPage selectBoardByTitle(final String title) {
         BOARD_CARD.findBy(attribute("title", title)).click();
         return homeWorksPageFactories.getTrelloBoardPage();

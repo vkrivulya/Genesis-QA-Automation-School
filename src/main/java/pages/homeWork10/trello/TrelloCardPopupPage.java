@@ -2,6 +2,7 @@ package pages.homeWork10.trello;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 
@@ -36,36 +37,44 @@ public final class TrelloCardPopupPage extends BasePage {
         return instance;
     }
 
+    @Step("Card popup header is displayed")
     public boolean isCardPopupHeaderVisible() {
         return isElementConditionAsExpected(CARD_POPUP_HEADER, visible, LONG_TIMEOUT);
     }
 
+    @Step("Set card description text")
     public void setCardDescriptionTextarea(final int index, final String description) {
         DESCRIPTION_INPUT.shouldBe(visible).click();
         EDITOR_TEXTAREA.get(index).setValue(description);
     }
 
+    @Step("Click on save description button")
     public void clickSaveDescriptionButton() {
         SAVE_DESCRIPTION_BUTTON.shouldBe(enabled).click();
     }
 
+    @Step("Get card popup description")
     public String getCardPopupDescription() {
         return CARD_POPUP_DESCRIPTION.shouldBe(visible).getText();
     }
 
+    @Step("Click close popup button")
     public void clickClosePopupButton() {
         CLOSE_POPUP_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Set comment")
     public void setComment(final int index, final String comment) {
         COMMENT_INPUT.shouldBe(visible).click();
         EDITOR_TEXTAREA.get(index).setValue(comment);
     }
 
+    @Step("Click on save comment button")
     public void clickSaveCommentButton() {
         SAVE_COMMENT_BUTTON.shouldBe(enabled).click();
     }
 
+    @Step("Get current comment")
     public String getCurrentComment() {
         return CURRENT_COMMENT.shouldBe(visible).getText();
     }
