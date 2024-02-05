@@ -46,8 +46,8 @@ public class SaucedemoTest extends BaseTest {
         inventoryPage.clickAddToCartByPriceButton($_9_99);
         cartPage = inventoryPage.clickCartButton();
         assertTrue(cartPage.isCartPageLoaded(), "Cart list should be displayed");
-        assertEquals(cartPage.getItemNameBePriceOnCart($_7_99), firstItemNameOnInventoryPage);
-        assertEquals(cartPage.getItemNameBePriceOnCart($_9_99), secondItemNameOnInventoryPage);
+        assertEquals(cartPage.getItemNameByPriceOnCart($_7_99), firstItemNameOnInventoryPage);
+        assertEquals(cartPage.getItemNameByPriceOnCart($_9_99), secondItemNameOnInventoryPage);
     }
 
     @Test(priority = 4)

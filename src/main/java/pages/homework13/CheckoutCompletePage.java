@@ -1,6 +1,7 @@
 package pages.homework13;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 
@@ -23,6 +24,7 @@ public class CheckoutCompletePage extends BasePage {
         return instance;
     }
 
+    @Step("Get complete Header Text")
     public String getCompleteHeaderText() {
         return COMPLETE_HEADER.shouldBe(visible).getText();
     }

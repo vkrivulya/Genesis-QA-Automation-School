@@ -1,6 +1,7 @@
 package pages.homework13;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 import users.ISaucedemoUsers;
@@ -30,15 +31,18 @@ public class SaucedemoLoginPage extends BasePage {
         return instance;
     }
 
+    @Step("Login page is loaded")
     public boolean isLoginPageLoaded() {
         return isElementConditionAsExpected(LOGIN_LOGO, visible, SHORT_TIMEOUT);
     }
 
+    @Step("Set User credential")
     public void setCredential(final ISaucedemoUsers users) {
         USERNAME_INPUT.shouldBe(visible).setValue(users.getUsername());
         PASSWORD_INPUT.shouldBe(visible).setValue(users.getPassword());
     }
 
+    @Step("Click on Login button")
     public InventoryPage clickLoginButton() {
         LOGIN_BUTTON.shouldBe(visible, enabled).click();
         return homeWorksPageFactories.getInventoryPage();

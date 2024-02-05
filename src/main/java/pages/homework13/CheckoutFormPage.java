@@ -1,6 +1,7 @@
 package pages.homework13;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 import users.IUserInfo;
@@ -29,12 +30,14 @@ public class CheckoutFormPage extends BasePage {
         return instance;
     }
 
+    @Step("Set user info data on form")
     public void setUserInfoForm(final IUserInfo userInfo) {
         FIRST_NAME_INPUT.shouldBe(visible).setValue(userInfo.getFirsName());
         LAST_NAME_INPUT.shouldBe(visible).setValue(userInfo.getLastName());
         POSTAL_CODE_INPUT.shouldBe(visible).setValue(userInfo.getPostalCode());
     }
 
+    @Step("Click on Continue button")
     public CheckoutOverviewPage clickContinueButton() {
         CONTINUE_BUTTON.shouldBe(visible, enabled).click();
         return homeWorksPageFactories.getCheckoutOverviewPage();
