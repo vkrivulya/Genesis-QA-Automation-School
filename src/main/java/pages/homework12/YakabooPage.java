@@ -1,6 +1,7 @@
 package pages.homework12;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 
@@ -40,6 +41,7 @@ public class YakabooPage extends BasePage {
         return isElementConditionAsExpected(HEADER, visible, LONG_TIMEOUT);
     }
 
+    @Step("Search Book")
     public void searchBook(String bookName) {
         clickCloseDialogIconIfExist();
         SEARCH_INPUT.shouldBe(visible).setValue(bookName);
@@ -48,45 +50,55 @@ public class YakabooPage extends BasePage {
         isBookVariantsVisible();
     }
 
+    @Step("Book on Search list is visible")
     public boolean isBookOnSearchListVisible() {
         return isElementConditionAsExpected(BOOK_ON_SEARCH_LIST, visible, LONG_TIMEOUT);
     }
 
+    @Step("Click on close dialog icon if exist")
     public void clickCloseDialogIconIfExist() {
         if (DIALOG_CLOSE_ICON.exists()) {
             DIALOG_CLOSE_ICON.shouldBe(visible).click();
         }
     }
 
+    @Step("Click on search product arrow button")
     public void clickSearchProductArrow() {
         clickCloseDialogIconIfExist();
         SEARCH_PRODUCT_ARROW.shouldBe(enabled).click();
     }
 
+    @Step("Status not available is exist")
     public boolean isStatusNotAvailableExist() {
         return STATUS_NOT_AVAILABLE.exists();
     }
 
+    @Step("Status available is exist")
     public boolean isStatusAvailableExist() {
         return STATUS_AVAILABLE.exists();
     }
 
+    @Step("EBook is exist")
     public boolean isEBookExist() {
         return EBOOK_PRICE.exists();
     }
 
+    @Step("Book variants is visible")
     public boolean isBookVariantsVisible() {
         return isElementConditionAsExpected(BOOK_LANGUAGE, visible, LONG_TIMEOUT);
     }
 
+    @Step("Get piper book price")
     public String getPiperBookPrice() {
         return PIPER_BOOK_PRICE.shouldBe(visible).getText();
     }
 
+    @Step("Get Ebook price")
     public String getEBookPrice() {
         return EBOOK_PRICE.shouldBe(visible).getText();
     }
 
+    @Step("Print book price")
     public void printBookPrice(String book) {
         if (isStatusAvailableExist()) {
             String piperBookPrice = getPiperBookPrice();

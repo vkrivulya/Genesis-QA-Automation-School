@@ -2,6 +2,7 @@ package pages.homeWork10.trello;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 
@@ -39,30 +40,37 @@ public final class TrelloBoardPage extends BasePage {
         return instance;
     }
 
+    @Step("Board name is displayed")
     public boolean isBoardNameDisplayed() {
         return isElementConditionAsExpected(BOARD_NAME, visible, LONG_TIMEOUT);
     }
 
+    @Step("Click on add Card button by index {0}")
     public void clickAddCardByIndexButton(final int index) {
         LIST_ADD_CARD_BUTTON.get(index).shouldBe(enabled).click();
     }
 
+    @Step("Card title text is displayed")
     public boolean isCardTitleTextareaVisible() {
         return isElementConditionAsExpected(CARD_TITLE_TEXTAREA, visible, SHORT_TIMEOUT);
     }
 
+    @Step("Set Card text {0}")
     public void setCardTextarea(final String text) {
         CARD_TITLE_TEXTAREA.shouldBe(visible).setValue(text);
     }
 
+    @Step("Click on submit button")
     public void clickSubmitAddCardButton() {
         SUBMIT_ADD_CARD_BUTTON.shouldBe(enabled).click();
     }
 
+    @Step("Get Card Name")
     public String getCardName() {
         return CARD_NAME.shouldBe(visible).getText();
     }
 
+    @Step("Open Card")
     public TrelloCardPopupPage openCard() {
         CLOSE_ICON.shouldBe(visible).click();
         CARD_NAME.shouldBe(visible).hover();
@@ -71,28 +79,34 @@ public final class TrelloBoardPage extends BasePage {
         return homeWorksPageFactories.getTrelloCardPopupPage();
     }
 
+    @Step("Archive card")
     public void archiveCard() {
         CARD_NAME.shouldBe(visible).hover();
         clickEditIconButton();
         clickArchiveButton();
     }
 
+    @Step("Card description is displayed")
     public boolean isCardDescriptionIconDisplayed() {
         return isElementConditionAsExpected(CARD_DESCRIPTION_ICON, visible, LONG_TIMEOUT);
     }
 
+    @Step("Card comment is displayed")
     public boolean isCardCommentIconDisplayed() {
         return isElementConditionAsExpected(CARD_COMMENT_ICON, visible, LONG_TIMEOUT);
     }
 
+    @Step("Click on edit icon button")
     public void clickEditIconButton() {
         EDIT_ICON.shouldBe(enabled).click();
     }
 
+    @Step("Click on archive button")
     public void clickArchiveButton() {
         QUICK_CARD_ARCHIVE.shouldBe(enabled).click();
     }
 
+    @Step("Click on open card button")
     public void clickOpenCardButton() {
         QUICK_CARD_OPEN_CARD.shouldBe(enabled).click();
     }

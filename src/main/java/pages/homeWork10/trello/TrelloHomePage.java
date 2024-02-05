@@ -1,6 +1,7 @@
 package pages.homeWork10.trello;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pageFactories.HomeWorksPageFactories;
 import pages.BasePage;
 
@@ -24,6 +25,7 @@ public final class TrelloHomePage extends BasePage {
         return instance;
     }
 
+    @Step("Click on Login button")
     public TrelloLoginPage clickLoginButton() {
         LOGIN_BUTTON.shouldBe(enabled).click();
         return homeWorksPageFactories.getTrelloLoginPage();
